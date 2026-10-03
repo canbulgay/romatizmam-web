@@ -1,7 +1,24 @@
+import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import PrivacyToc from '@/components/PrivacyToc';
+import { alternatesFor } from '@/i18n/alternates';
+import type { Locale } from '@/i18n/routing';
 
 type Section = { h: string; p: string };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'meta' });
+  return {
+    title: t('privacyTitle'),
+    description: t('description'),
+    alternates: alternatesFor(locale as Locale, '/privacy'),
+  };
+}
 
 export default async function PrivacyPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
