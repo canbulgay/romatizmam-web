@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-cream: #F1E8DC;
+  --color-paper: #FAF5EC;
+  --color-ink: #2A211B;
+  --color-body: #5E5045;
+  --color-prose: #4A3D33;
+  --color-muted: #8A7A6B;
+  --color-line: #DDD0BE;
+  --color-accent: #C65F3D;
+  --color-accent-hover: #A8442A;
+
+  --font-sans: var(--font-dm-sans), system-ui, sans-serif;
+  --font-serif: var(--font-newsreader), Georgia, serif;
+
+  --breakpoint-desk: 900px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--color-accent-hover);
+  }
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "brand" "phones" "text";
+  column-gap: 56px;
+  row-gap: 36px;
+  align-content: center;
+  align-items: center;
+  padding: 32px 20px 48px;
+}
+
+@media (min-width: 900px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: "brand phones" "text phones";
+    row-gap: 28px;
+    min-height: calc(100vh - 88px);
+    padding: 56px 24px;
+  }
+}
