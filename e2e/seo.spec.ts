@@ -31,7 +31,11 @@ for (const p of pages) {
 
 test('favicon is the app icon', async ({ page }) => {
   await page.goto('/');
-  await expect(page.locator('link[rel="icon"]').first()).toHaveAttribute('href', /app-icon\.png/);
+  const icon = page.locator('link[rel="icon"]').first();
+  await expect(icon).toHaveAttribute('href', /app-icon\.png/);
+  const res = await page.request.get((await icon.getAttribute('href'))!);
+  expect(res.status()).toBe(200);
+  expect((await res.body()).byteLength).toBeLessThan(60_000);
 });
 
 test('sitemap lists the four URLs', async ({ request }) => {

@@ -23,7 +23,7 @@ const newsreader = Newsreader({
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.siteUrl),
-  icons: { icon: '/images/app-icon.png', apple: '/images/app-icon.png' },
+  icons: { icon: '/icons/app-icon.png', apple: '/icons/app-icon.png' },
 };
 
 export function generateStaticParams() {

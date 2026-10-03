@@ -16,7 +16,7 @@ export default function PhoneDuo() {
           src="/images/screen-body.png"
           alt=""
           width={680}
-          height={1478}
+          height={1474}
           sizes="(min-width: 900px) 250px, 46vw"
           priority
           className={shot}
