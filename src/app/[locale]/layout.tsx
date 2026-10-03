@@ -1,30 +1,21 @@
 import type { Metadata } from 'next';
-import { DM_Sans, Newsreader } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import Footer from '@/components/Footer';
 import { site } from '@/config/site';
 import { routing } from '@/i18n/routing';
+import { dmSans, newsreader } from '../fonts';
 import '../globals.css';
-
-const dmSans = DM_Sans({
-  subsets: ['latin', 'latin-ext'],
-  variable: '--font-dm-sans',
-  display: 'swap',
-});
-
-const newsreader = Newsreader({
-  subsets: ['latin', 'latin-ext'],
-  style: ['normal', 'italic'],
-  variable: '--font-newsreader',
-  display: 'swap',
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.siteUrl),
   icons: { icon: '/icons/app-icon.png', apple: '/icons/app-icon.png' },
 };
+
+// A first segment that is not a locale (e.g. /nope.txt, which skips the proxy)
+// must not match this route, so it falls through to global-not-found.
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

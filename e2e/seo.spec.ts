@@ -72,3 +72,20 @@ test.describe('404', () => {
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('Page not found');
   });
 });
+
+test.describe('404 without JavaScript', () => {
+  for (const { path, accept, lang, heading } of [
+    { path: '/nope', accept: 'tr', lang: 'tr', heading: 'Sayfa bulunamadı' },
+    { path: '/en/nope', accept: 'tr', lang: 'en', heading: 'Page not found' },
+    { path: '/nope.txt', accept: 'tr', lang: 'tr', heading: 'Sayfa bulunamadı' },
+  ]) {
+    test(`${path} is server-rendered in ${lang} with a title`, async ({ request }) => {
+      const res = await request.get(path, { headers: { 'Accept-Language': accept } });
+      expect(res.status()).toBe(404);
+      const html = await res.text();
+      expect(html).toContain(`<html lang="${lang}"`);
+      expect(html).toMatch(new RegExp(`<h1[^>]*>${heading}</h1>`));
+      expect(html).toMatch(new RegExp(`<title>${heading} — Romi</title>`));
+    });
+  }
+});
