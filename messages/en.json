@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "title": "Romi — For life with rheumatic disease",
+    "description": "Romi is a calm daily journal for rheumatic conditions. Log pain and morning stiffness in seconds, keep your medication on schedule, and walk into every appointment with a clear report.",
+    "privacyTitle": "Privacy Policy — Romi"
+  },
+  "nav": { "privacy": "Privacy Policy" },
+  "store": { "small": "Download on the" },
+  "hero": {
+    "eyebrow": "For life with rheumatic disease",
+    "h1a": "Know your pain.",
+    "h1b": "Show your doctor.",
+    "sub": "Romi is a calm daily journal for rheumatic conditions. Log pain and morning stiffness in seconds, keep your medication on schedule, and walk into every appointment with a clear report.",
+    "note": "Available for iPhone"
+  },
+  "notFound": { "title": "Page not found" },
+  "privacy": {
+    "back": "← Back to home",
+    "title": "Privacy Policy",
+    "updated": "Last updated: 3 October 2026",
+    "intro": "This policy explains how the Romi app (\"the app\") handles your information. The app is developed by Can Bulgay (\"we\", \"us\"), who is the data controller under Turkish Personal Data Protection Law No. 6698 (\"KVKK\") and, where applicable, the EU General Data Protection Regulation (\"GDPR\").",
+    "sections": [
+      { "h": "1. Data you enter", "p": "Pain scores, affected body regions, morning stiffness, sleep quality, flare days, medications, doses and reminder times, notes, and your profile name and condition.\nThis includes health data, which is a special category of personal data under KVKK Article 6 and GDPR Article 9." },
+      { "h": "2. Where your data is stored", "p": "All data is stored locally on your device. It may also be included in your device or iCloud backup, depending on your Apple settings. We do not run servers that receive or store your entries." },
+      { "h": "3. How the data is used", "p": "Only to provide the app's features: showing your history, sending medication reminders and generating reports. We do not use your data for advertising or profiling, and we never sell it." },
+      { "h": "4. Sharing", "p": "We do not share your data with anyone. When you export a PDF report, you choose the recipient through the iOS share menu; that transfer is under your control." },
+      { "h": "5. Analytics and third parties", "p": "The app contains no third-party analytics or advertising SDKs. If you have chosen to share analytics with app developers in iOS settings, Apple may provide us with anonymised crash reports." },
+      { "h": "6. Legal basis", "p": "Health data is processed on the basis of your explicit consent (KVKK Article 6(2); GDPR Article 9(2)(a)), given when you start entering data. You can withdraw consent at any time by deleting your entries or the app." },
+      { "h": "7. Retention and deletion", "p": "Your data stays on your device until you delete individual entries or remove the app. Deleting the app permanently removes all of its data from the device." },
+      { "h": "8. Your rights", "p": "Under KVKK Article 11 and GDPR Articles 15–22 you have the right to access, correct, delete and port your data, to object to processing, and to complain to the Turkish Personal Data Protection Authority or your local supervisory authority. Because your data is held only on your device, most of these rights can be exercised directly in the app. You can also contact us." },
+      { "h": "9. Children", "p": "The app is not intended for children under 16 without the consent of a parent or guardian." },
+      { "h": "10. Changes to this policy", "p": "If we change this policy, we will update the date above. We will tell you in the app about any significant change." },
+      { "h": "11. Contact", "p": "Can Bulgay\ncanbulgay@outlook.com\ncanbulgay.com" }
+    ]
+  }
+}
