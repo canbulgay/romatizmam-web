@@ -2,6 +2,7 @@ import { DM_Sans, Newsreader } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
+import Footer from '@/components/Footer';
 import { routing } from '@/i18n/routing';
 import '../globals.css';
 
@@ -36,7 +37,12 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${dmSans.variable} ${newsreader.variable}`}>
       <body className="bg-cream text-ink font-sans antialiased">
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider>
+          <div className="flex min-h-screen flex-col">
+            <div className="flex-1">{children}</div>
+            <Footer />
+          </div>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
