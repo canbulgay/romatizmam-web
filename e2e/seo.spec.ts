@@ -7,6 +7,8 @@ const pages = [
   { path: '/en', locale: 'en-US', title: 'Romi — For life with rheumatic disease', canonical: `${base}/en`, tr: `${base}/`, en: `${base}/en` },
   { path: '/privacy', locale: 'tr-TR', title: 'Gizlilik Politikası — Romi', canonical: `${base}/privacy`, tr: `${base}/privacy`, en: `${base}/en/privacy` },
   { path: '/en/privacy', locale: 'en-US', title: 'Privacy Policy — Romi', canonical: `${base}/en/privacy`, tr: `${base}/privacy`, en: `${base}/en/privacy` },
+  { path: '/contact', locale: 'tr-TR', title: 'İletişim — Romi', canonical: `${base}/contact`, tr: `${base}/contact`, en: `${base}/en/contact` },
+  { path: '/en/contact', locale: 'en-US', title: 'Contact — Romi', canonical: `${base}/en/contact`, tr: `${base}/contact`, en: `${base}/en/contact` },
 ];
 
 const strip = (url: string | null) => (url ?? '').replace(/\/$/, '');
@@ -38,11 +40,11 @@ test('favicon is the app icon', async ({ page }) => {
   expect((await res.body()).byteLength).toBeLessThan(60_000);
 });
 
-test('sitemap lists the four URLs', async ({ request }) => {
+test('sitemap lists every page in both languages', async ({ request }) => {
   const res = await request.get('/sitemap.xml');
   expect(res.status()).toBe(200);
   const xml = await res.text();
-  for (const loc of [`${base}/`, `${base}/en`, `${base}/privacy`, `${base}/en/privacy`]) {
+  for (const loc of [`${base}/`, `${base}/en`, `${base}/privacy`, `${base}/en/privacy`, `${base}/contact`, `${base}/en/contact`]) {
     expect(xml).toMatch(new RegExp(`<loc>${loc.replace(/\/$/, '')}/?</loc>`));
   }
 });

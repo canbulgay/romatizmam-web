@@ -2,9 +2,10 @@
   "meta": {
     "title": "Romi — For life with rheumatic disease",
     "description": "Romi is a calm daily journal for rheumatic conditions. Log pain and morning stiffness in seconds, keep your medication on schedule, and walk into every appointment with a clear report.",
-    "privacyTitle": "Privacy Policy — Romi"
+    "privacyTitle": "Privacy Policy — Romi",
+    "contactTitle": "Contact — Romi"
   },
-  "nav": { "privacy": "Privacy Policy" },
+  "nav": { "privacy": "Privacy Policy", "contact": "Contact" },
   "store": { "badgeAlt": "Download on the App Store" },
   "hero": {
     "eyebrow": "For life with rheumatic disease",
@@ -14,6 +15,19 @@
     "note": "Available for iPhone"
   },
   "notFound": { "title": "Page not found" },
+  "contact": {
+    "title": "Questions or feedback?",
+    "body": "Write to us. We read every message and use it to make the app better.",
+    "emailLabel": "Email",
+    "webLabel": "Website",
+    "note": "Please don’t send medical details or ask for medical advice — we can’t provide it. For urgent symptoms, contact your doctor or call 112.",
+    "topicLabel": "What’s it about?",
+    "topics": ["Feedback", "Bug report", "Question"],
+    "nameLabel": "Your name (optional)",
+    "msgLabel": "Message",
+    "send": "Send message",
+    "sendNote": "Opens your email app with the message filled in."
+  },
   "privacy": {
     "back": "← Back to home",
     "title": "Privacy Policy",

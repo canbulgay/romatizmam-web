@@ -6,7 +6,7 @@ import { routing } from '@/i18n/routing';
 const abs = (path: string) => `${site.siteUrl}${path === '/' ? '' : path}`;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return (['', '/privacy'] as const).flatMap((path) =>
+  return (['', '/privacy', '/contact'] as const).flatMap((path) =>
     routing.locales.map((locale) => ({
       url: abs(localizedPath(locale, path)),
       alternates: {

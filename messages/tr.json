@@ -2,9 +2,10 @@
   "meta": {
     "title": "Romi — Romatizmal hastalıklarla yaşam için",
     "description": "Romi, romatizmal hastalıklar için sakin bir günlük. Ağrını ve sabah tutukluğunu saniyeler içinde kaydet, ilaçlarını zamanında al ve her randevuya net bir raporla git.",
-    "privacyTitle": "Gizlilik Politikası — Romi"
+    "privacyTitle": "Gizlilik Politikası — Romi",
+    "contactTitle": "İletişim — Romi"
   },
-  "nav": { "privacy": "Gizlilik Politikası" },
+  "nav": { "privacy": "Gizlilik Politikası", "contact": "İletişim" },
   "store": { "badgeAlt": "App Store'dan İndirin" },
   "hero": {
     "eyebrow": "Romatizmal hastalıklarla yaşam için",
@@ -14,6 +15,19 @@
     "note": "iPhone'da kullanılabilir"
   },
   "notFound": { "title": "Sayfa bulunamadı" },
+  "contact": {
+    "title": "Soru ya da önerin mi var?",
+    "body": "Bize yaz. Her mesajı okuyor ve uygulamayı geliştirmek için kullanıyoruz.",
+    "emailLabel": "E-posta",
+    "webLabel": "Web sitesi",
+    "note": "Lütfen sağlık bilgilerini paylaşma ya da tıbbi tavsiye isteme — bunu sağlayamayız. Acil belirtilerde doktoruna başvur ya da 112’yi ara.",
+    "topicLabel": "Konu nedir?",
+    "topics": ["Öneri", "Hata bildirimi", "Soru"],
+    "nameLabel": "Adın (isteğe bağlı)",
+    "msgLabel": "Mesaj",
+    "send": "Mesajı gönder",
+    "sendNote": "E-posta uygulamanı mesaj dolu şekilde açar."
+  },
   "privacy": {
     "back": "← Ana sayfaya dön",
     "title": "Gizlilik Politikası",

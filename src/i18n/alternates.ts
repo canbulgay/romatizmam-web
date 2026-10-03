@@ -1,6 +1,6 @@
 import { routing, type Locale } from './routing';
 
-type Path = '' | '/privacy';
+type Path = '' | '/privacy' | '/contact';
 
 export function localizedPath(locale: Locale, path: Path): string {
   if (locale === routing.defaultLocale) return path || '/';
