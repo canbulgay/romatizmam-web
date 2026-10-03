@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
+import Hero from '@/components/Hero';
 import { alternatesFor } from '@/i18n/alternates';
 import type { Locale } from '@/i18n/routing';
 
@@ -20,10 +21,9 @@ export async function generateMetadata({
 export default async function LandingPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations('hero');
   return (
-    <main>
-      <h1>{t('h1a')}</h1>
+    <main className="overflow-x-clip">
+      <Hero />
     </main>
   );
 }
