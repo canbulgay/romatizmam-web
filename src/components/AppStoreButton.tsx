@@ -1,15 +1,28 @@
-import { getTranslations } from 'next-intl/server';
+import Image from 'next/image';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { site } from '@/config/site';
 
+// Apple's official badges, unmodified. Widths are each SVG's own viewBox
+// width at its 40px height; the artwork differs per language.
+const badges: Record<string, { src: string; width: number }> = {
+  tr: { src: '/icons/app-store-tr.svg', width: 151.29 },
+  en: { src: '/icons/app-store-en.svg', width: 119.66 },
+};
+
 export default async function AppStoreButton() {
+  const locale = await getLocale();
   const t = await getTranslations('store');
+  const badge = badges[locale] ?? badges.en;
   return (
-    <a
-      href={site.appStoreUrl}
-      className="inline-flex min-h-[58px] flex-col justify-center rounded-[14px] bg-ink px-[22px] py-[10px] leading-[1.15] text-paper hover:bg-black hover:text-paper"
-    >
-      <span className="text-[12px] opacity-85">{t('small')}</span>{' '}
-      <span className="text-[21px] font-semibold tracking-[-0.01em]">App Store</span>
+    <a href={site.appStoreUrl} className="inline-flex">
+      <Image
+        src={badge.src}
+        alt={t('badgeAlt')}
+        width={badge.width}
+        height={40}
+        unoptimized
+        className="block h-[58px] w-auto"
+      />
     </a>
   );
 }

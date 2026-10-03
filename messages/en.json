@@ -5,7 +5,7 @@
     "privacyTitle": "Privacy Policy — Romi"
   },
   "nav": { "privacy": "Privacy Policy" },
-  "store": { "small": "Download on the" },
+  "store": { "badgeAlt": "Download on the App Store" },
   "hero": {
     "eyebrow": "For life with rheumatic disease",
     "h1a": "Know your pain.",

@@ -7,8 +7,9 @@ test('Turkish hero copy and App Store link', async ({ page }) => {
   await expect(h1.locator('em')).toHaveText('Doktoruna göster.');
   await expect(page.getByText('Romatizmal hastalıklarla yaşam için')).toBeVisible();
   await expect(page.getByText("iPhone'da kullanılabilir")).toBeVisible();
-  const store = page.getByRole('link', { name: /App Store/ });
+  const store = page.getByRole('link', { name: "App Store'dan İndirin" });
   await expect(store).toHaveAttribute('href', 'https://apps.apple.com/');
+  await expect(store.locator('img')).toHaveAttribute('src', /app-store-tr\.svg/);
 });
 
 test('English hero copy', async ({ page }) => {
@@ -16,13 +17,15 @@ test('English hero copy', async ({ page }) => {
   const h1 = page.getByRole('heading', { level: 1 });
   await expect(h1).toContainText('Know your pain.');
   await expect(h1.locator('em')).toHaveText('Show your doctor.');
-  await expect(page.getByRole('link', { name: /Download on the\s*App Store/ })).toBeVisible();
+  const store = page.getByRole('link', { name: 'Download on the App Store' });
+  await expect(store).toHaveAttribute('href', 'https://apps.apple.com/');
+  await expect(store.locator('img')).toHaveAttribute('src', /app-store-en\.svg/);
 });
 
-test('all hero images load', async ({ page }) => {
+test('all hero images and the store badge load', async ({ page }) => {
   await page.goto('/');
   const images = page.locator('main img');
-  await expect(images).toHaveCount(3);
+  await expect(images).toHaveCount(4);
   for (const img of await images.all()) {
     await expect.poll(() => img.evaluate((el: HTMLImageElement) => el.naturalWidth)).toBeGreaterThan(0);
   }
@@ -59,4 +62,11 @@ test.describe('desktop', () => {
     const h1 = await page.getByRole('heading', { level: 1 }).boundingBox();
     expect(h1!.x + h1!.width).toBeLessThanOrEqual(phones!.x + 1);
   });
+});
+
+test('store badge is Apple\'s artwork at the button height', async ({ page }) => {
+  await page.goto('/');
+  const box = await page.getByRole('link', { name: "App Store'dan İndirin" }).locator('img').boundingBox();
+  expect(Math.round(box!.height)).toBe(58);
+  expect(box!.width / box!.height).toBeCloseTo(151.29 / 40, 1);
 });

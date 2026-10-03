@@ -5,7 +5,7 @@
     "privacyTitle": "Gizlilik Politikası — Romi"
   },
   "nav": { "privacy": "Gizlilik Politikası" },
-  "store": { "small": "App Store'dan" },
+  "store": { "badgeAlt": "App Store'dan İndirin" },
   "hero": {
     "eyebrow": "Romatizmal hastalıklarla yaşam için",
     "h1a": "Ağrını tanı.",
