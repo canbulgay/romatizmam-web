@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-const base = 'https://example.com';
+const base = 'https://romatizmam.com';
 
 const pages = [
   { path: '/', locale: 'tr-TR', title: 'Romi — Romatizmal hastalıklarla yaşam için', canonical: `${base}/`, tr: `${base}/`, en: `${base}/en` },
