@@ -1,5 +1,7 @@
 import { expect, test } from '@playwright/test';
 
+const appStoreUrl = 'https://apps.apple.com/tr/app/romi-arthritis-pain-tracker/id6819439195';
+
 test('Turkish hero copy and App Store link', async ({ page }) => {
   await page.goto('/');
   const h1 = page.getByRole('heading', { level: 1 });
@@ -8,7 +10,7 @@ test('Turkish hero copy and App Store link', async ({ page }) => {
   await expect(page.getByText('Romatizmal hastalıklarla yaşam için')).toBeVisible();
   await expect(page.getByText("iPhone'da kullanılabilir")).toBeVisible();
   const store = page.getByRole('link', { name: "App Store'dan İndirin" });
-  await expect(store).toHaveAttribute('href', 'https://apps.apple.com/');
+  await expect(store).toHaveAttribute('href', appStoreUrl);
   await expect(store.locator('img')).toHaveAttribute('src', /app-store-tr\.svg/);
 });
 
@@ -18,7 +20,7 @@ test('English hero copy', async ({ page }) => {
   await expect(h1).toContainText('Know your pain.');
   await expect(h1.locator('em')).toHaveText('Show your doctor.');
   const store = page.getByRole('link', { name: 'Download on the App Store' });
-  await expect(store).toHaveAttribute('href', 'https://apps.apple.com/');
+  await expect(store).toHaveAttribute('href', appStoreUrl);
   await expect(store.locator('img')).toHaveAttribute('src', /app-store-en\.svg/);
 });
 
