@@ -76,3 +76,39 @@ test('store badge is Apple\'s artwork at the button height', async ({ page }) =>
   expect(Math.round(box!.height)).toBe(58);
   expect(box!.width / box!.height).toBeCloseTo(151.29 / 40, 1);
 });
+
+// Phone heights are Safari's visible area with the browser bars shown.
+const oneScreen = [
+  { width: 1920, height: 1080, phones: true },
+  { width: 1440, height: 900, phones: true },
+  { width: 1280, height: 720, phones: true },
+  { width: 1280, height: 640, phones: true },
+  { width: 768, height: 1024, phones: true },
+  { width: 390, height: 664, phones: true },
+  { width: 375, height: 629, phones: true },
+  // iPhone SE: too short for the phones, so they are dropped.
+  { width: 375, height: 548, phones: false },
+];
+
+for (const { phones: showsPhones, ...viewport } of oneScreen) {
+  test.describe(`one screen at ${viewport.width}x${viewport.height}`, () => {
+    test.use({ viewport });
+
+    test('hero and footer fit without scrolling', async ({ page }) => {
+      await page.goto('/');
+      const scroll = await page.evaluate(() => ({
+        height: document.documentElement.scrollHeight,
+        viewport: window.innerHeight,
+      }));
+      expect(scroll.height).toBeLessThanOrEqual(scroll.viewport);
+      const footer = await page.locator('footer').boundingBox();
+      expect(footer!.y + footer!.height).toBeLessThanOrEqual(viewport.height + 0.5);
+      const phones = page.getByTestId('phone-duo');
+      if (showsPhones) {
+        expect((await phones.boundingBox())!.height).toBeGreaterThanOrEqual(150);
+      } else {
+        await expect(phones).toBeHidden();
+      }
+    });
+  });
+}

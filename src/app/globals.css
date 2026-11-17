@@ -35,23 +35,38 @@
   }
 }
 
+/* One screen, no scrolling: the phones row takes the height the text leaves. */
 .hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr) auto;
   grid-template-areas: "brand" "phones" "text";
-  column-gap: 56px;
-  row-gap: 32px;
-  align-content: center;
-  align-items: center;
-  padding: 32px 20px 48px;
+  row-gap: 16px;
+  padding: 16px 20px 20px;
 }
 
+/* Desktop: the text is centred in the left column and the phones fill the
+   whole height of the right one. */
 @media (min-width: 900px) {
   .hero-grid {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    grid-template-areas: "brand phones" "text phones";
-    row-gap: 28px;
-    min-height: calc(100vh - 88px);
-    padding: 56px 24px;
+    grid-template-rows: minmax(0, 1fr) auto auto minmax(0, 1fr);
+    grid-template-areas: ". phones" "brand phones" "text phones" ". phones";
+    column-gap: 56px;
+    row-gap: 0;
+    padding: 32px 24px;
+  }
+}
+
+/* The phones scale to fit this box's width and height. On short screens
+   (an iPhone SE with the browser bars shown) too little is left to show them
+   usefully, so they are dropped and the text still fits. */
+.hero-phones {
+  container-type: size;
+}
+
+@container (max-height: 139px) {
+  .hero-phones > * {
+    display: none;
   }
 }

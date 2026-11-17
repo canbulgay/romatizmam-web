@@ -35,8 +35,11 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <body className="bg-ground text-ink font-sans antialiased">
         <NextIntlClientProvider>
-          <div className="flex min-h-screen flex-col">
-            <div className="flex-1">{children}</div>
+          {/* The page row is at least one screen minus the footer, and grows
+              with longer pages. Its height is definite, so the home page can
+              fill it exactly. svh: the screen with the browser bars shown. */}
+          <div className="grid min-h-svh grid-rows-[1fr_auto]">
+            <div className="min-w-0">{children}</div>
             <Footer />
           </div>
         </NextIntlClientProvider>

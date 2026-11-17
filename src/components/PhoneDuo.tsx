@@ -8,11 +8,12 @@ const shot = 'block h-full w-full scale-[1.022] object-cover';
 
 export default function PhoneDuo() {
   return (
+    // Sized by the parent size container: as large as fits its width and height.
     <div
       data-testid="phone-duo"
-      className="relative mb-2 aspect-[540/640] w-[min(100%,540px)] desk:mb-10"
+      className="relative aspect-[540/640] w-[min(100cqw,calc(100cqh*540/640),540px)]"
     >
-      <div className={`${frame} right-0 top-10 w-[46%] rotate-[5deg]`}>
+      <div className={`${frame} right-0 top-[6%] w-[46%] rotate-[5deg]`}>
         <div className={screen}>
           <Image
             src="/images/screen-body.png"

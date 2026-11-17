@@ -7,7 +7,7 @@ export default async function Footer() {
   const t = await getTranslations('nav');
   return (
     <footer className="border-t border-separator">
-      <div className="mx-auto flex max-w-[1180px] flex-wrap items-center gap-x-7 gap-y-4 px-6 py-5 text-[15px] text-ink-2">
+      <div className="mx-auto flex max-w-[1180px] flex-wrap items-center gap-x-5 gap-y-2 px-5 py-3 text-[13px] text-ink-2 desk:gap-x-7 desk:px-6 desk:py-5 desk:text-[15px]">
         <a
           href={site.developerUrl}
           target="_blank"

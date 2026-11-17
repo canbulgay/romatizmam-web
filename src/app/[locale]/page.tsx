@@ -22,7 +22,7 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
   const { locale } = await params;
   setRequestLocale(locale);
   return (
-    <main className="overflow-x-clip">
+    <main className="h-full overflow-x-clip">
       <Hero />
     </main>
   );

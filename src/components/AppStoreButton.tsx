@@ -21,7 +21,7 @@ export default async function AppStoreButton() {
         width={badge.width}
         height={40}
         unoptimized
-        className="block h-[58px] w-auto"
+        className="block h-12 w-auto desk:h-[58px]"
       />
     </a>
   );
