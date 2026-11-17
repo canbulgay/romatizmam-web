@@ -5,7 +5,6 @@ import { setRequestLocale } from 'next-intl/server';
 import Footer from '@/components/Footer';
 import { site } from '@/config/site';
 import { routing } from '@/i18n/routing';
-import { dmSans, newsreader } from '../fonts';
 import '../globals.css';
 
 export const metadata: Metadata = {
@@ -33,8 +32,8 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   return (
-    <html lang={locale} className={`${dmSans.variable} ${newsreader.variable}`}>
-      <body className="bg-cream text-ink font-sans antialiased">
+    <html lang={locale}>
+      <body className="bg-ground text-ink font-sans antialiased">
         <NextIntlClientProvider>
           <div className="flex min-h-screen flex-col">
             <div className="flex-1">{children}</div>

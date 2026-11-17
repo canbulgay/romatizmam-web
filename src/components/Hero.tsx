@@ -11,30 +11,26 @@ export default async function Hero() {
         <Image
           src="/images/app-icon.png"
           alt="Romi"
-          width={72}
-          height={72}
-          className="block h-[72px] w-[72px] flex-none rounded-[17px] shadow-[0_10px_24px_-10px_rgba(120,50,20,0.5)]"
+          width={64}
+          height={64}
+          className="block h-16 w-16 flex-none rounded-[22.5%]"
         />
         <div className="flex min-w-0 flex-col gap-1">
-          <span className="font-serif text-[30px] leading-none">Romi</span>
-          <span className="text-[12px] font-semibold uppercase leading-[1.4] tracking-[0.08em] text-muted">
-            {t('eyebrow')}
-          </span>
+          <span className="text-[28px] font-bold leading-[34px] tracking-[-0.01em]">Romi</span>
+          <span className="text-[15px] leading-5 text-ink-2">{t('eyebrow')}</span>
         </div>
       </div>
 
-      <div className="flex flex-col gap-7 self-start [grid-area:text]">
-        <h1 className="m-0 text-balance font-serif text-[clamp(48px,6.4vw,84px)] font-normal leading-none tracking-[-0.02em]">
+      <div className="flex flex-col gap-6 self-start [grid-area:text]">
+        <h1 className="m-0 text-balance text-[clamp(44px,5.2vw,64px)] font-bold leading-[1.05] tracking-[-0.025em]">
           {t('h1a')}
-          <br />
-          <em className="italic text-accent">{t('h1b')}</em>
+          {/* icon-orange is 3.6:1 on ground: fine at this size, never for small text. */}
+          <span className="block text-icon-orange">{t('h1b')}</span>
         </h1>
-        <p className="m-0 max-w-[520px] text-pretty text-[19px] leading-[1.55] text-body">
-          {t('sub')}
-        </p>
-        <div className="flex flex-wrap items-center gap-5">
+        <p className="m-0 max-w-[520px] text-pretty text-[20px] leading-7 text-ink-2">{t('sub')}</p>
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
           <AppStoreButton />
-          <span className="text-[14px] text-muted">{t('note')}</span>
+          <span className="text-[15px] leading-5 text-ink-2">{t('note')}</span>
         </div>
       </div>
 

@@ -16,7 +16,7 @@ export default function PrivacyToc({
         <a
           key={s.id}
           href={`#${s.id}`}
-          className="text-[14px] leading-[1.4] text-muted hover:text-ink"
+          className="text-[14px] leading-[1.4] text-ink-2 hover:text-ink"
         >
           {s.h}
         </a>

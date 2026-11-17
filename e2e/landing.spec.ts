@@ -6,7 +6,7 @@ test('Turkish hero copy and App Store link', async ({ page }) => {
   await page.goto('/');
   const h1 = page.getByRole('heading', { level: 1 });
   await expect(h1).toContainText('Ağrını tanı.');
-  await expect(h1.locator('em')).toHaveText('Doktoruna göster.');
+  await expect(h1).toContainText('Doktoruna göster.');
   await expect(page.getByText('Romatizmal hastalıklarla yaşam için')).toBeVisible();
   await expect(page.getByText("iPhone'da kullanılabilir")).toBeVisible();
   const store = page.getByRole('link', { name: "App Store'dan İndirin" });
@@ -18,7 +18,7 @@ test('English hero copy', async ({ page }) => {
   await page.goto('/en');
   const h1 = page.getByRole('heading', { level: 1 });
   await expect(h1).toContainText('Know your pain.');
-  await expect(h1.locator('em')).toHaveText('Show your doctor.');
+  await expect(h1).toContainText('Show your doctor.');
   const store = page.getByRole('link', { name: 'Download on the App Store' });
   await expect(store).toHaveAttribute('href', appStoreUrl);
   await expect(store.locator('img')).toHaveAttribute('src', /app-store-en\.svg/);
@@ -33,11 +33,15 @@ test('all hero images and the store badge load', async ({ page }) => {
   }
 });
 
-test('italic headline line uses the accent colour', async ({ page }) => {
+test('headline is upright system type, second line in the icon orange', async ({ page }) => {
   await page.goto('/');
-  const em = page.getByRole('heading', { level: 1 }).locator('em');
-  await expect(em).toHaveCSS('color', 'rgb(198, 95, 61)');
-  await expect(em).toHaveCSS('font-style', 'italic');
+  const h1 = page.getByRole('heading', { level: 1 });
+  await expect(h1.locator('em')).toHaveCount(0);
+  await expect(h1).toHaveCSS('font-family', /-apple-system/);
+  await expect(h1).toHaveCSS('font-weight', '700');
+  const second = h1.getByText('Doktoruna göster.');
+  await expect(second).toHaveCSS('color', 'rgb(194, 91, 52)');
+  await expect(second).toHaveCSS('font-style', 'normal');
 });
 
 test.describe('mobile', () => {

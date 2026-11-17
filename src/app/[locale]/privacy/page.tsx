@@ -34,11 +34,11 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
       <PrivacyToc back={t('back')} sections={sections} />
       <article className="flex min-w-0 max-w-[760px] flex-[999_1_480px] flex-col gap-9">
         <div className="flex flex-col gap-4">
-          <h1 className="m-0 font-serif text-[clamp(44px,5.6vw,72px)] font-normal leading-none tracking-[-0.02em]">
+          <h1 className="m-0 text-[clamp(40px,5vw,64px)] font-bold leading-[1.05] tracking-[-0.025em]">
             {t('title')}
           </h1>
-          <div className="text-[14px] text-muted">{t('updated')}</div>
-          <p className="mb-0 mt-2 text-pretty text-[18px] leading-[1.65] text-prose">
+          <div className="text-[14px] text-ink-2">{t('updated')}</div>
+          <p className="mb-0 mt-2 text-pretty text-[18px] leading-[1.65] text-ink">
             {t('intro')}
           </p>
         </div>
@@ -46,10 +46,10 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
           <section
             key={s.id}
             id={s.id}
-            className="flex scroll-mt-6 flex-col gap-3 border-t border-line pt-7"
+            className="flex scroll-mt-6 flex-col gap-3 border-t border-separator pt-7"
           >
             <h2 className="m-0 text-[21px] font-semibold tracking-[-0.01em]">{s.h}</h2>
-            <p className="m-0 whitespace-pre-line text-pretty break-words text-[16px] leading-[1.7] text-prose">
+            <p className="m-0 whitespace-pre-line text-pretty break-words text-[16px] leading-[1.7] text-ink">
               {s.p}
             </p>
           </section>

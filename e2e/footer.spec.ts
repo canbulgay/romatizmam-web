@@ -23,7 +23,7 @@ test('switcher marks the active language', async ({ page }) => {
   const nav = page.getByRole('navigation', { name: 'Language' });
   await expect(nav.getByRole('link', { name: 'TR' })).toHaveAttribute('aria-current', 'true');
   await expect(nav.getByRole('link', { name: 'EN' })).not.toHaveAttribute('aria-current', 'true');
-  await expect(nav.getByRole('link', { name: 'TR' })).toHaveCSS('background-color', 'rgb(42, 33, 27)');
+  await expect(nav.getByRole('link', { name: 'TR' })).toHaveCSS('background-color', 'rgb(42, 33, 24)');
 });
 
 test.describe('English browser choosing Turkish', () => {

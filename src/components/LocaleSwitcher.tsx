@@ -12,7 +12,7 @@ export default function LocaleSwitcher() {
   return (
     <nav
       aria-label="Language"
-      className="ml-auto flex gap-1 rounded-full border border-line bg-paper p-1"
+      className="ml-auto flex gap-1 rounded-full bg-card p-1"
     >
       {order.map((locale) => {
         const isActive = locale === active;
@@ -24,8 +24,8 @@ export default function LocaleSwitcher() {
             aria-current={isActive ? 'true' : undefined}
             className={`rounded-full px-3 py-1.5 text-[13px] font-semibold ${
               isActive
-                ? 'bg-ink text-paper hover:text-paper'
-                : 'bg-transparent text-body hover:text-ink'
+                ? 'bg-ink text-card hover:text-card'
+                : 'bg-transparent text-ink-2 hover:text-ink'
             }`}
           >
             {locale.toUpperCase()}

@@ -12,7 +12,7 @@ type Labels = {
 };
 
 const field =
-  'rounded-[12px] border border-line bg-[#FFFDF9] px-3.5 py-[13px] text-[16px] text-ink outline-accent';
+  'rounded-[12px] border border-separator bg-[#FFFDF9] px-3.5 py-[13px] text-[16px] text-ink outline-accent';
 
 export default function ContactForm({ email, labels }: { email: string; labels: Labels }) {
   const [topic, setTopic] = useState(0);
@@ -34,7 +34,7 @@ export default function ContactForm({ email, labels }: { email: string; labels: 
   return (
     <form
       onSubmit={sendMail}
-      className="flex min-w-0 max-w-[620px] flex-[1_1_380px] flex-col gap-5 rounded-[20px] border border-line bg-paper p-8"
+      className="flex min-w-0 max-w-[620px] flex-[1_1_380px] flex-col gap-5 rounded-[20px] border border-separator bg-card p-8"
     >
       <fieldset className="m-0 flex min-w-0 flex-col gap-2.5 border-0 p-0">
         <legend className="mb-2.5 p-0 text-[14px] font-semibold">{labels.topicLabel}</legend>
@@ -43,7 +43,7 @@ export default function ContactForm({ email, labels }: { email: string; labels: 
             <label
               key={label}
               className={`cursor-pointer rounded-full border px-4 py-[9px] text-[14px] font-medium has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-accent ${
-                topic === i ? 'border-ink bg-ink text-paper' : 'border-line bg-transparent text-body'
+                topic === i ? 'border-ink bg-ink text-card' : 'border-separator bg-transparent text-ink-2'
               }`}
             >
               <input
@@ -70,11 +70,11 @@ export default function ContactForm({ email, labels }: { email: string; labels: 
       <div className="flex flex-wrap items-center gap-4">
         <button
           type="submit"
-          className="cursor-pointer rounded-[14px] border-0 bg-ink px-[26px] py-[15px] text-[16px] font-semibold text-paper hover:bg-black"
+          className="cursor-pointer rounded-[14px] border-0 bg-ink px-[26px] py-[15px] text-[16px] font-semibold text-card hover:bg-black"
         >
           {labels.send}
         </button>
-        <span className="flex-[1_1_200px] text-[13px] text-muted">{labels.sendNote}</span>
+        <span className="flex-[1_1_200px] text-[13px] text-ink-2">{labels.sendNote}</span>
       </div>
     </form>
   );

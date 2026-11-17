@@ -6,7 +6,7 @@ import { alternatesFor } from '@/i18n/alternates';
 import { Link } from '@/i18n/navigation';
 import type { Locale } from '@/i18n/routing';
 
-const label = 'text-[12px] font-semibold uppercase tracking-[0.08em] text-muted';
+const label = 'text-[15px] font-semibold leading-5 text-ink-2';
 
 export async function generateMetadata({
   params,
@@ -34,15 +34,15 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
       </Link>
       <div className="flex flex-wrap items-start gap-x-[72px] gap-y-12">
         <div className="flex min-w-0 max-w-[460px] flex-[1_1_320px] flex-col gap-6">
-          <h1 className="m-0 text-balance font-serif text-[clamp(44px,5.6vw,72px)] font-normal leading-none tracking-[-0.02em]">
+          <h1 className="m-0 text-balance text-[clamp(40px,5vw,64px)] font-bold leading-[1.05] tracking-[-0.025em]">
             {t('contact.title')}
           </h1>
-          <p className="m-0 text-pretty text-[18px] leading-[1.6] text-prose">{t('contact.body')}</p>
-          <div className="flex flex-col gap-1.5 border-t border-line pt-6">
+          <p className="m-0 text-pretty text-[18px] leading-[1.6] text-ink">{t('contact.body')}</p>
+          <div className="flex flex-col gap-1.5 border-t border-separator pt-6">
             <span className={label}>{t('contact.emailLabel')}</span>
             <a
               href={`mailto:${site.contactEmail}`}
-              className="break-words font-serif text-[26px] leading-[1.2]"
+              className="break-words text-[22px] font-semibold leading-7"
             >
               {site.contactEmail}
             </a>
@@ -53,7 +53,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
               {site.developerUrl.replace('https://', '')}
             </a>
           </div>
-          <p className="m-0 text-pretty text-[14px] leading-[1.6] text-muted">{t('contact.note')}</p>
+          <p className="m-0 text-pretty text-[14px] leading-[1.6] text-ink-2">{t('contact.note')}</p>
         </div>
         <ContactForm
           email={site.contactEmail}
