@@ -33,6 +33,22 @@ test('all hero images and the store badge load', async ({ page }) => {
   }
 });
 
+for (const { path, locale } of [
+  { path: '/', locale: 'tr' },
+  { path: '/en', locale: 'en' },
+]) {
+  test(`phone screenshots are in the page language (${locale})`, async ({ page }) => {
+    await page.goto(path);
+    const srcs = await page
+      .getByTestId('phone-duo')
+      .locator('img')
+      .evaluateAll((imgs) => imgs.map((img) => (img as HTMLImageElement).src));
+    expect(srcs).toHaveLength(2);
+    expect(srcs[0]).toContain(`screen-body-${locale}.png`);
+    expect(srcs[1]).toContain(`screen-today-${locale}.png`);
+  });
+}
+
 test('headline is upright system type, second line in the icon orange', async ({ page }) => {
   await page.goto('/');
   const h1 = page.getByRole('heading', { level: 1 });
